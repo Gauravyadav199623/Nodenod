@@ -31,7 +31,7 @@ const requestHandler=(req,res)=>{
             
             const parseBody=Buffer.concat(body).toString();
             console.log(parseBody)
-            const message=parseBody.split('=')[1]
+            const message=parseBody.split('=')[0]
             console.log(message)
             
             fs.writeFile('message.txt',message,(err)=>{ // ?(which file to write to.txt, what to write, ()=>what to do after every thing is been written )
@@ -43,28 +43,7 @@ const requestHandler=(req,res)=>{
             
         })
     }
-    // if(url==="/home"){
-    //     res.write("<html>");
-    //     res.write("<head><title>Enter Message</title></head>")
-    //     res.write('<body><h1>Welcome Home<h1></body>')
-    //     res.write("</html>")
-    //     return res.end()
-    // }
-    // if(url==="/about"){
-    //     res.write("<html>");
-    //     res.write("<head><title>Enter Message</title></head>")
-    //     res.write('<body><h1>Welcome About Us page<h1></body>')
-    //     res.write("</html>")
-    //     return res.end()
-    // }
-    // if(url==="/node"){
-    //     res.write("<html>");
-    //     res.write("<head><title>Enter Message</title></head>")
-    //     res.write('<body><h1>Welcome My Nodejs Project<h1></body>')
-    //     res.write("</html>")
-    //     return res.end()
-    // }
-     else {
+    else{
     
         res.setHeader('content-type','text/html');
         res.write("<html>");
