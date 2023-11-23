@@ -1,13 +1,14 @@
 const express=require('express');
+const path=require ('path')
 
 const router=express.Router();
+
+const rootDir=require('../util/path');
 
 
 //  /admin/add-product==>GET
 router.get('/add-product',(req,res,next)=>{
-    console.log('in other middleware')
-    res.send('<form action="/admin/add-product" method="POST"><input type="text" name="title"><input type="text" name="size"><button type="submit">Add Product</button></form>')
-    // next()// allow request to continue to next middleware in line
+    res.sendFile(path.join(rootDir,'views','add-product.html'))
 });
 
 // /admin/add-product==>POST
